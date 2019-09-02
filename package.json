@@ -7,7 +7,8 @@
     "debundle": "node bin/debundle",
     "rebundle": "node bin/rebundle",
     "push": "node bin/push",
-    "pull": "node bin/pull"
+    "pull": "node bin/pull",
+    "rebundle-push": "node bin/rebundle && node bin/push"
   },
   "dependencies": {
     "dotenv": "^8.1.0",
