@@ -1,0 +1,18 @@
+{
+  "name": "windcord",
+  "version": "0.1.0-alpha",
+  "author": "Seth Stephens <seth@sethstephens.me>",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "debundle": "node bin/debundle",
+    "rebundle": "node bin/rebundle",
+    "push": "node bin/push",
+    "pull": "node bin/pull"
+  },
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "fs-extra": "^8.1.0",
+    "metro": "^0.56.0",
+    "ssh2-sftp-client": "^4.0.3"
+  }
+}
