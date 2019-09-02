@@ -1,5 +1,5 @@
 # windcord
-Discord for iOS client modifications
+Patch Discord for iOS's JavaScript bundles to make modifications  
 **This project is in a VERY early state. Do not expect any support.**  
 Your device **must** be jailbroken.
 
