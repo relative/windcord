@@ -17,7 +17,6 @@ bootstrap = bootstrap.substr(0, bootstrap.length - 3)
 const mappings = JSON.parse(eval(`JSON.stringify(${bootstrap})`)) // unsafe
 const ourMappings = {}
 const resolvedPaths = {}
-console.log(Object.keys(mappings))
 Object.keys(mappings.modules).forEach(key => {
   const value = mappings.modules[key]
   let ourKey = key.replace(/\.\.\//gi, './')
