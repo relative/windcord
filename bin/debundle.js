@@ -14,20 +14,20 @@ let bootstrap = bundle.getStartupCode()
 let sigIndex = bootstrap.indexOf(DEBUNDLE_BOOTSTRAP_SIG)
 bootstrap = bootstrap.substr(sigIndex + DEBUNDLE_BOOTSTRAP_SIG.length)
 bootstrap = bootstrap.substr(0, bootstrap.length - 3)
-
 const mappings = JSON.parse(eval(`JSON.stringify(${bootstrap})`)) // unsafe
 const ourMappings = {}
 const resolvedPaths = {}
-Object.keys(mappings.moduleMappings.modules).forEach(key => {
-  const value = mappings.moduleMappings.modules[key]
+console.log(Object.keys(mappings))
+Object.keys(mappings.modules).forEach(key => {
+  const value = mappings.modules[key]
   let ourKey = key.replace(/\.\.\//gi, './')
   ourKey = ourKey.replace('^\\.\\/.*$', 'regexthing')
   ourMappings[ourKey] = [key, value]
 })
-mappings.moduleMappings.ourModules = ourMappings
+mappings.ourModules = ourMappings
 
-Object.keys(mappings.moduleMappings.ourModules).forEach(key => {
-  let value = mappings.moduleMappings.ourModules[key]
+Object.keys(mappings.ourModules).forEach(key => {
+  let value = mappings.ourModules[key]
   let original = value[0]
   let id = value[1]
   let resolvedPath = path.resolve(path.join(OUT_PATH, key))
@@ -36,7 +36,7 @@ Object.keys(mappings.moduleMappings.ourModules).forEach(key => {
   fs.writeFileSync(resolvedPath, bundle.getModule(id), 'utf8')
   resolvedPaths[resolvedPath] = id
 })
-mappings.moduleMappings.resolvedPaths = resolvedPaths
+mappings.resolvedPaths = resolvedPaths
 // Write bootstrap to disk
 fs.writeFileSync(
   path.join(OUT_PATH, 'bootstrap.js'),

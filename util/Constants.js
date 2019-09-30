@@ -12,7 +12,7 @@ const DIST_PATH = path.resolve(BASE_PATH, 'dist')
 const BUNDLE_PATH = path.join(STAGE_PATH, 'main.jsbundle')
 
 module.exports = {
-  DEBUNDLE_BOOTSTRAP_SIG: `/*****/  })(this, `,
+  DEBUNDLE_BOOTSTRAP_SIG: `/*****/  })(this, 0, `,
   paths: {
     BASE_PATH,
     STAGE_PATH,

@@ -12,8 +12,8 @@ const modules = []
 
 console.log('[ .. ]\tbuilding rambundle')
 
-Object.keys(mappings.moduleMappings.resolvedPaths).forEach(key => {
-  let id = mappings.moduleMappings.resolvedPaths[key]
+Object.keys(mappings.resolvedPaths).forEach(key => {
+  let id = mappings.resolvedPaths[key]
   let source = fs.readFileSync(key, 'utf8')
   modules.push({
     id,
